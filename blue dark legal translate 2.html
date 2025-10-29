@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Юридичні переклади для компаній</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #05081a;
+      color: #e0e8ff;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(5, 8, 26, 0.9);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 255, 200, 0.2);
+    }
+    header h1 { font-size: 20px; color: #00bcd4; letter-spacing: 1px; }
+    nav a {
+      color: #e0e8ff;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #00ffc8; }
+
+    section { padding: 100px 20px; text-align: center; position: relative; }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, #0b102a, #01030c);
+      overflow: hidden;
+    }
+    .hero h2 { font-size: 38px; color: #00ffc8; margin-bottom: 20px; }
+    .hero p { font-size: 18px; color: #b0c4ff; max-width: 600px; }
+    .hero button {
+      margin-top: 30px;
+      background: #00bcd4;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    .hero button:hover { background: #00ffc8; transform: scale(1.05); }
+
+    .services {
+      background-color: #0a0f2e;
+    }
+    .services h3 { color: #00ffc8; margin-bottom: 30px; font-size: 28px; }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .service {
+      background: rgba(10, 15, 46, 0.6);
+      border: 1px solid rgba(0, 255, 200, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      transition: 0.4s;
+    }
+    .service:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(0,255,200,0.3);
+    }
+
+    .contacts {
+      background: #05081a;
+      color: #b0c4ff;
+    }
+    .contacts h3 { color: #00ffc8; }
+    .contacts p { margin-top: 10px; font-size: 18px; }
+
+    footer {
+      background: #020414;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      border-top: 1px solid rgba(0,255,200,0.2);
+    }
+
+    /* Анімація планет */
+    .planet {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00ffc8, #003344);
+      opacity: 0.5;
+      animation: orbit 40s linear infinite;
+    }
+    .planet.small { width: 40px; height: 40px; animation-duration: 60s; }
+    .planet.medium { width: 80px; height: 80px; animation-duration: 100s; }
+    .planet.large { width: 120px; height: 120px; animation-duration: 150s; }
+
+    @keyframes orbit {
+      0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+    }
+
+    /* Ефект цифрового дощу */
+    canvas#matrixRain {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: #000010;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; padding: 10px; }
+      nav { margin-top: 10px; }
+      .hero h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrixRain"></canvas>
+  <header>
+    <h1>Юридичні переклади для компаній</h1>
+    <nav>
+      <a href="#about">Про нас</a>
+      <a href="#services">Послуги</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="planet small"></div>
+    <div class="planet medium"></div>
+    <div class="planet large"></div>
+    <h2>Професійні переклади юридичних документів</h2>
+    <p>Ми допомагаємо юридичним компаніям та приватним юристам перекладати офіційні документи для міжнародної роботи.</p>
+    <button onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">Дізнатись більше</button>
+  </section>
+
+  <section id="about">
+    <h3>Про нас</h3>
+    <p>Наша команда спеціалізується на перекладах юридичних документів, угод, контрактів та довіреностей. Ми розуміємо важливість точності у кожному слові.</p>
+  </section>
+
+  <section id="services" class="services">
+    <h3>Наші послуги</h3>
+    <div class="service-grid">
+      <div class="service">Переклад контрактів та угод</div>
+      <div class="service">Переклад судових документів</div>
+      <div class="service">Переклад установчих документів</div>
+      <div class="service">Переклад ліцензій і дозволів</div>
+      <div class="service">Переклад адвокатських резюме та профайлів</div>
+    </div>
+  </section>
+
+  <section id="contacts" class="contacts">
+    <h3>Контакти</h3>
+    <p>Зв’яжіться з нами для перекладу ваших юридичних документів:</p>
+    <p>Email: <strong>gtilabz@gmail.com</strong></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Юридичні переклади для компаній. Усі права захищено.</p>
+  </footer>
+
+  <script>
+    // Анімація цифрового дощу (Matrix effect)
+    const canvas = document.getElementById('matrixRain');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = '01';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 20, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00ffc8';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 35);
+  </script>
+</body>
+</html>
